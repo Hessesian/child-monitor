@@ -1,18 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'findbugs'
-
-findbugs {
-    sourceSets = []
-    ignoreFailures = false
-}
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "de.rochefort.childmonitor"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 33
         versionCode 5
         versionName "0.5"
     }
@@ -23,27 +18,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
-    dependencies {
-        compile "com.android.support:support-compat:26.1.0"
-    }
 }
 
-task findbugs(type: FindBugs, dependsOn: 'assembleDebug') {
-
-    description 'Run findbugs'
-    group 'verification'
-
-    classes = fileTree('build/intermediates/classes/debug/')
-    source = fileTree('src/main/java')
-    classpath = files()
-
-    effort = 'max'
-
-    excludeFilter = file("./config/findbugs/exclude.xml")
-
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
+dependencies {
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.media3:media3-exoplayer:1.1.0'
 }
+

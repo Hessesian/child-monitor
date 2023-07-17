@@ -6,6 +6,7 @@
 
     <uses-permission android:required="true" android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:required="true" android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:required="true" android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:required="true" android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:required="true" android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
@@ -19,7 +20,7 @@
             android:name="de.rochefort.childmonitor.StartActivity"
             android:label="@string/app_name"
             android:configChanges="orientation|screenSize"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

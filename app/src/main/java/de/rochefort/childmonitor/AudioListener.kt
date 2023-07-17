@@ -12,20 +12,10 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Child Monitor. If not, see <http://www.gnu.org/licenses/>.
+ * along with Child Monitor. If not, see <http:></http:>//www.gnu.org/licenses/>.
  */
-package de.rochefort.childmonitor;
+package de.rochefort.childmonitor
 
-import android.media.AudioFormat;
-
-public class AudioCodecDefines {
-    public static final int FREQUENCY = 11025;
-    public static final int ENCODING = AudioFormat.ENCODING_PCM_16BIT;
-    public static final int CHANNEL_CONFIGURATION_IN = AudioFormat.CHANNEL_IN_MONO;
-    public static final int CHANNEL_CONFIGURATION_OUT = AudioFormat.CHANNEL_OUT_MONO;
-
-
-    private AudioCodecDefines() {
-        throw new IllegalStateException("Do not instantiate!");
-    }
+interface AudioListener {
+  fun onAudio(audioBytes: ByteArray)
 }
